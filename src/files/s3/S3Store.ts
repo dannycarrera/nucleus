@@ -6,13 +6,13 @@ import * as config from '../../config';
 
 const d = debug('nucleus:s3');
 
-AWS.config.credentials = new AWS.EC2MetadataCredentials({
-  httpOptions: { timeout: 5000 },
-  maxRetries: 10,
-});
+// AWS.config.credentials = new AWS.EC2MetadataCredentials({
+//   httpOptions: { timeout: 5000 },
+//   maxRetries: 10,
+// });
 
 export default class S3Store implements IFileStore {
-  constructor(public s3Config = config.s3) {}
+  constructor(public s3Config = config.s3) { }
 
   public async hasFile(key: string) {
     const s3 = this.getS3();
